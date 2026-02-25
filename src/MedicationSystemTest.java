@@ -9,11 +9,12 @@ public class MedicationSystemTest {
 
         boolean running = true;
 
+//        menu section
         while (running) {
             System.out.println("/n Medication Tracking System");
-            System.out.println("1. Add Patient");
-            System.out.println("2. Add Doctor");
-            System.out.println("3. Add Medication");
+            System.out.println("1. Add/Remove/Edit Patient");
+            System.out.println("2. Add/Remove/Edit Doctor");
+            System.out.println("3. Add/Remove/Edit Medication");
             System.out.println("4. Search");
             System.out.println("5. Accept Prescription");
             System.out.println("6. Assign Patient to Doctor");
@@ -22,34 +23,60 @@ public class MedicationSystemTest {
             System.out.println("9. Doctor Prescriptions");
             System.out.println("10. Patient Prescription (Past Year)");
             System.out.println("11. Restock Medications");
-            System.out.println("0. Exit");
             System.out.println("Choose an option: ");
 
             int choice = scanner.nextInt();
 //            clear buffer
             scanner.nextLine();
 
+//
             switch (choice) {
-//                Add Patient
+//                Add, delete, or edit patients
                 case 1:
-//                    Patient newPatient = new Patient(30, "Sammie Marie", 24, "1234567890");
-                    system.addPatient();
+                    system.fullEditPatient();
                     break;
-//                Add Doctor
+//                Add, delete, or edit doctors
                 case 2:
-//                    Doctor newDoctor = new Doctor(201, "Dr.Smith", 42, "09876543212","Cardiologist" );
-                    system.addDoctor();
+                    system.fullEditDoctor();
                     break;
-//                Add Medication
+//                Add, delete, or edit medications
                 case 3:
-//                    Medication newMedication = new Medication(3145, "Atenolol", "2mg", 45 );
-                    system.addMedication();
+                    system.fullEditMedications();
                     break;
-//                 Search
+//                 Search for patient Doctor or Medications
                 case 4:
+                    system.searchMenu();
                     break;
+//                    Accept Prescription
+                case 5:
+                    system.acceptPrescription();
+                    break;
+//                    assign patient to doctor
+                case 6:
+                    system.addPatientToDoctor();
+                    break;
+//                    Generate Full Report
+                case 7:
+//                    code here
+                    break;
+//                    Check Expired Medications
+                case 8:
+//                    code here
+                    break;
+//                    Doctor Prescriptions
+                case 9:
+//                    code here
+                    break;
+//                    Patient Prescription (Past Year)
+                case 10:
+//                    code here
+                    break;
+//                Restock Medications
+                case 11:
+//                    code here
+                    break;
+                }
             }
         }
 
     }
-}

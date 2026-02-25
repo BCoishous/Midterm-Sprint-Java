@@ -265,7 +265,83 @@ public class MedicationTrackingSystem {
         }
     }
 
+//    allow the user to add, remove or edit patients
+    public void fullEditPatient() {
+        System.out.println("\n Edit patient menu: ");
+        System.out.println(" 1. Add new Patient");
+        System.out.println(" 2. Delete Patient");
+        System.out.println(" 3. Edit Patient Info");
+        System.out.println(" 0. Back");
 
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                addPatient();
+                break;
+            case 2:
+                deletePatient();
+                break;
+            case 3:
+                editPatient();
+                break;
+            case 0:
+                return;
+            }
+        }
+
+//    allow the user to add, remove or edit Doctor info
+    public void fullEditDoctor() {
+        System.out.println("\n Edit Doctor menu: ");
+        System.out.println(" 1. Add new Doctor");
+        System.out.println(" 2. Delete Doctor");
+        System.out.println(" 3. Edit Doctor Info");
+        System.out.println(" 0. Back");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                addDoctor();
+                break;
+            case 2:
+                deleteDoctor();
+                break;
+            case 3:
+                editDoctor();
+                break;
+            case 0:
+                return;
+        }
+    }
+
+//    allow the user to add, remove or edit Medications
+    public void fullEditMedications() {
+        System.out.println("\n Edit Medications menu: ");
+        System.out.println(" 1. Add new Medications");
+        System.out.println(" 2. Delete Medications");
+        System.out.println(" 3. Edit Medication Info");
+        System.out.println(" 0. Back");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choice) {
+            case 1:
+                addMedication();
+                break;
+            case 2:
+                deleteMedication();
+                break;
+            case 3:
+                editMedication();
+                break;
+            case 0:
+                return;
+        }
+    }
     /**
      * Prompts the user for a patient name and displays their details.
      */
@@ -320,6 +396,32 @@ public class MedicationTrackingSystem {
             System.out.println(found);
         } else {
             System.out.println("No medication found with the name \"" + name + "\".");
+        }
+    }
+
+//    code to allow the searchs to be under one option in the menu
+    public void searchMenu() {
+        System.out.println("\n Search Menu: ");
+        System.out.println(" 1. Search Doctor");
+        System.out.println(" 2. Search Patient");
+        System.out.println(" 3. Search Medication");
+        System.out.println(" 0. Back");
+
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+    switch (choice) {
+        case 1:
+            searchDoctor();
+            break;
+        case 2:
+            searchPatient();
+            break;
+        case 3:
+            searchMedication();
+            break;
+        case 0:
+            return;
         }
     }
 
