@@ -32,18 +32,18 @@ public class MedicationSystemTest {
             switch (choice) {
 //                Add Patient
                 case 1:
-                    Patient newPatient = new Patient(30, "Sammie Marie", 24, "1234567890");
-                    system.addPatient(newPatient);
+//                    Patient newPatient = new Patient(30, "Sammie Marie", 24, "1234567890");
+                    system.addPatient();
                     break;
 //                Add Doctor
                 case 2:
-                    Doctor newDoctor = new Doctor(201, "Dr.Smith", 42, "09876543212","Cardiologist" );
-                    system.addDoctor(newDoctor);
+//                    Doctor newDoctor = new Doctor(201, "Dr.Smith", 42, "09876543212","Cardiologist" );
+                    system.addDoctor();
                     break;
 //                Add Medication
                 case 3:
 //                    Medication newMedication = new Medication(3145, "Atenolol", "2mg", 45 );
-//                    system.addMedication(newMedication);
+                    system.addMedication();
                     break;
 //                 Search
                 case 4:
