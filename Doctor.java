@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 /**
  * Doctor represents a doctor in the pharmacy system.
- * It extends Person, inheriting ID, name, age, and phone number.
- * Each doctor also has a specialization and manages a list of patients.
+ * Person, inheriting ID, name, age, and phone number.
+ * Each doctor also has  specialization and manages a list of patients.
  */
 public class Doctor extends Person {
 
     // ----- Attributes -----
 
-    // The doctor's medical specialization (e.g. "Cardiology", "General Practice")
+    // The doctor's medical specialization (e.g. "Cardiology", "Neurology")
     private String specialization;
 
     // The list of patients this doctor is currently managing
@@ -18,8 +18,7 @@ public class Doctor extends Person {
     // ----- Constructor -----
 
     /**
-     * Creates a new Doctor.
-     * super() is called first to initialize the shared Person fields.
+     * Create a new Doctor.
      *
      * @param id             Unique identifier for this doctor.
      * @param name           Full name of the doctor.
