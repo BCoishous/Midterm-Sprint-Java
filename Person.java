@@ -56,7 +56,7 @@ public abstract class Person {
     // ----- Display -----
 
     /**
-     * Returns a formatted string of basic details
+     * Return formatted string to basic details
      */
     @Override
     public String toString() {
