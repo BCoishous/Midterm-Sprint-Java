@@ -17,8 +17,7 @@ public class Medication {
     // ----- Constructor -----
 
     /**
-     * Creates a new Medication with a randomly generated expiry date.
-     * @param id             
+     * Creates a new Medication
      * @param name           
      * @param dose           
      * @param quantityInStock 
@@ -35,22 +34,13 @@ public class Medication {
 
     /**
      * Generates a random expiry date between 3 years ago and 3 years from now.
-     * This means some medications will already be expired when added — which
-     * is intentional so the expired medication report has something to find!
-     *
-     * How it works:
-     *  - We start from today's date
-     *  - We pick a random number of days between -1095 (3 years ago)
-     *    and +1095 (3 years from now)
-     *  - We add that offset to today to get the expiry date
-     *
-     * @return A randomly generated LocalDate for the expiry date.
+     * @return
      */
     private LocalDate generateRandomExpiryDate() {
         Random random = new Random();
 
-        // Range: -1095 days (3 years ago) to +1095 days (3 years ahead)
-        int dayOffset = random.nextInt(2191) - 1095; // 2191 = total range, shift back by 1095
+        
+        int dayOffset = random.nextInt(2191) - 1095; 
 
         return LocalDate.now().plusDays(dayOffset);
     }
@@ -78,7 +68,6 @@ public class Medication {
     }
 
     // ----- Setters -----
-    // (Used by the edit and restock functionality in MedicationTrackingSystem)
 
     public void setName(String name) {
         this.name = name;
@@ -99,9 +88,7 @@ public class Medication {
     // ----- Helper Methods -----
 
     /**
-     * Checks whether this medication is expired based on today's date.
-     *
-     * @return true if the expiry date is before today, false otherwise.
+     * @return true if the expiry date is before today
      */
     public boolean isExpired() {
         return expiryDate.isBefore(LocalDate.now());
@@ -109,9 +96,7 @@ public class Medication {
 
     /**
      * Adds a given amount to the current stock.
-     * Used by the restock functionality.
-     *
-     * @param amount The number of units to add to stock.
+     * @param amount 
      */
     public void restock(int amount) {
         if (amount > 0) {
@@ -126,7 +111,7 @@ public class Medication {
     // ----- Display -----
 
     /**
-     * Returns a formatted summary of this medication's details.
+     * Returns a summary of this medication's details.
      * Flags the medication as EXPIRED if its expiry date has passed.
      */
     @Override
