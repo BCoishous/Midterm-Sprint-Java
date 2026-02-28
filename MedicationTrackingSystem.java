@@ -38,7 +38,7 @@ public class MedicationTrackingSystem {
     // ADD / DELETE
   
     /**
-     * enter details for a new patient then adds them to the system.
+     * enter details for a new patient then add them to the system.
      */
     public void addPatient() {
         System.out.println("\n--- Add New Patient ---");
@@ -59,7 +59,7 @@ public class MedicationTrackingSystem {
     }
 
     /**
-     * enter details for a new doctor and adds them to the system.
+     * enter details for a new doctor and add them to the system.
      */
     public void addDoctor() {
         System.out.println("\n--- Add New Doctor ---");
@@ -83,7 +83,7 @@ public class MedicationTrackingSystem {
     }
 
     /**
-     * enter details for a new medication and adds it to the system.
+     * enter details for a new medication and add it to the system.
      */
     public void addMedication() {
         System.out.println("\n--- Add New Medication ---");
@@ -267,7 +267,7 @@ public class MedicationTrackingSystem {
 
 
     /**
-     * Prompts the user for a patient name and displays their details.
+     * enter patient name and displays their details.
      */
     public void searchPatient() {
         System.out.println("\n--- Search Patient ---");
@@ -286,7 +286,7 @@ public class MedicationTrackingSystem {
     }
 
     /**
-     * Prompts the user for a doctor name and displays their details.
+     * enter doctor name and displays their details.
      */
     public void searchDoctor() {
         System.out.println("\n--- Search Doctor ---");
@@ -305,7 +305,7 @@ public class MedicationTrackingSystem {
     }
 
     /**
-     * Prompts the user for a medication name and displays its details.
+     * enter a medication name and displays its details.
      */
     public void searchMedication() {
         System.out.println("\n--- Search Medication ---");
@@ -324,7 +324,7 @@ public class MedicationTrackingSystem {
     }
 
     /**
-     * Prompts the user to manually input a prescription
+     * manually input a prescription
      */
     public void acceptPrescription() {
         System.out.println("\n--- Accept Prescription ---");
