@@ -16,16 +16,15 @@ public class Patient extends Person {
     // ----- Constructor -----
 
     /**
-     * Creates a new Patient.
-     * @param id          Unique identifier for this patient.
-     * @param name        Full name of the patient.
-     * @param age         Age of the patient.
-     * @param phoneNumber Contact phone number.
+     * @param id          
+     * @param name        
+     * @param age         
+     * @param phoneNumber 
      */
     public Patient(int id, String name, int age, String phoneNumber) {
         super(id, name, age, phoneNumber); 
 
-        // Initialize both lists 
+        // Initialize lists 
         this.medications = new ArrayList<>();
         this.prescriptions = new ArrayList<>();
     }
@@ -51,7 +50,7 @@ public class Patient extends Person {
     }
 
     /**
-     * Removes a medication from this patient's  list.
+     * Removes medication from this patient's  list.
      *
      * @param medication 
      */
@@ -60,7 +59,7 @@ public class Patient extends Person {
     }
 
     /**
-     * Adds a prescription to this patient's list.
+     * Adds prescription to this patient's list.
      *
      * @param prescription 
      */
@@ -69,7 +68,7 @@ public class Patient extends Person {
     }
 
     /**
-     * Removes a prescription from this patient'slist.
+     * Removes prescription from this patient's list.
      *
      * @param prescription 
      */

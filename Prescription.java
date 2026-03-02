@@ -1,22 +1,19 @@
 import java.time.LocalDate;
 
 /**
- * Prescription represents a prescription issued by a doctor for a patient.
- * It is the central linking class of the system — it holds references to
- * a Doctor, a Patient, and a Medication all in one place.
- *
- * The prescription expiry date defaults to one year from the issue date.
+ * represents a prescription issued by a doctor for a patient.
  */
 public class Prescription {
 
     // ----- Attributes -----
 
     private int id;
-    private Doctor doctor;          // Reference to the prescribing doctor
-    private Patient patient;        // Reference to the patient receiving the prescription
-    private Medication medication;  // Reference to the prescribed medication
-    private LocalDate issueDate;    // The date the prescription was created
-    private LocalDate expiryDate;   // Defaults to one year after the issue date
+    private Doctor doctor;          
+    private Patient patient;      
+    private Medication medication;  
+    private LocalDate issueDate;    
+    private LocalDate expiryDate;  
+
 
     // ----- Constructor -----
 
@@ -24,11 +21,10 @@ public class Prescription {
      * Creates a new Prescription, automatically setting:
      *  - Issue date to today
      *  - Expiry date to exactly one year from today
-     *
-     * @param id         Unique identifier for this prescription.
-     * @param doctor     The doctor issuing the prescription.
-     * @param patient    The patient receiving the prescription.
-     * @param medication The medication being prescribed.
+     * @param id         
+     * @param doctor     
+     * @param patient    
+     * @param medication 
      */
     public Prescription(int id, Doctor doctor, Patient patient, Medication medication) {
         this.id = id;
@@ -70,7 +66,7 @@ public class Prescription {
     /**
      * Checks whether this prescription has expired based on today's date.
      *
-     * @return true if the expiry date is before today, false otherwise.
+     * @return true if the expiry date is before today
      */
     public boolean isExpired() {
         return expiryDate.isBefore(LocalDate.now());
@@ -92,7 +88,6 @@ public class Prescription {
 
     /**
      * Returns a full summary of this prescription.
-     * Pulls the name directly from the linked Doctor, Patient, and Medication objects.
      */
     @Override
     public String toString() {
