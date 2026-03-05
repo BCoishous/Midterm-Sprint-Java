@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -398,7 +399,7 @@ public class MedicationTrackingSystem {
     // PRIVATE HELPER METHODS
 
     /**
-     * Searches the patients list for a patient matching the given name (case-insensitive).
+     * Searches the patients list for a patient matching the given name
      *
      * @param name 
      * @return 
@@ -447,5 +448,211 @@ public class MedicationTrackingSystem {
     public ArrayList<Doctor> getDoctors() { return doctors; }
     public ArrayList<Medication> getMedications() { return medications; }
     public ArrayList<Prescription> getPrescriptions() { return prescriptions; }
+
+
+// 6 — GENERATE FULL SYSTEM REPORT
+
+/**
+ * Prints a full summary report of all data in the system 
+ */
+public void generateFullReport() {
+    System.out.println("\n========================================");
+    System.out.println("         FULL SYSTEM REPORT             ");
+    System.out.println("========================================");
+    System.out.println("Report Generated: " + LocalDate.now());
+
+    // --- Patients ---
+    System.out.println("\n--- Patients (" + patients.size() + ") ---");
+    if (patients.isEmpty()) {
+        System.out.println("No patients in the system.");
+    } else {
+        for (Patient patient : patients) {
+            System.out.println(patient);
+            System.out.println();
+        }
+    }
+
+    // --- Doctors ---
+    System.out.println("\n--- Doctors (" + doctors.size() + ") ---");
+    if (doctors.isEmpty()) {
+        System.out.println("No doctors in the system.");
+    } else {
+        for (Doctor doctor : doctors) {
+            System.out.println(doctor);
+            System.out.println();
+        }
+    }
+
+    // --- Medications ---
+    System.out.println("\n--- Medications (" + medications.size() + ") ---");
+    if (medications.isEmpty()) {
+        System.out.println("No medications in the system.");
+    } else {
+        for (Medication med : medications) {
+            System.out.println(med);
+        }
+    }
+
+    // --- Prescriptions ---
+    System.out.println("\n--- Prescriptions (" + prescriptions.size() + ") ---");
+    if (prescriptions.isEmpty()) {
+        System.out.println("No prescriptions in the system.");
+    } else {
+        for (Prescription prescription : prescriptions) {
+            System.out.println(prescription);
+            System.out.println();
+        }
+    }
+
+    System.out.println("========================================");
+    System.out.println("           END OF REPORT                ");
+    System.out.println("========================================\n");
+}
+
+// 7 — CHECK FOR EXPIRED MEDICATIONS
+
+/**
+ * Checks all medications in the system and prints a report
+ * of any that have passed their expiry date.
+ */
+public void generateExpiredMedicationReport() {
+    System.out.println("\n========================================");
+    System.out.println("      EXPIRED MEDICATION REPORT         ");
+    System.out.println("========================================");
+    System.out.println("Report Generated: " + LocalDate.now());
+    System.out.println();
+
+    boolean anyExpired = false;
+
+    for (Medication med : medications) {
+        if (med.isExpired()) {
+            System.out.println(med);
+            anyExpired = true;
+        }
+    }
+
+    if (!anyExpired) {
+        System.out.println("No expired medications found in the system.");
+    }
+
+    System.out.println("\n========================================");
+    System.out.println("           END OF REPORT                ");
+    System.out.println("========================================\n");
+}
+
+// 8 — PRINT ALL PRESCRIPTIONS FOR A DOCTOR
+
+/**
+ * Prompts the user for a doctor's name and prints all
+ * prescriptions that have been issued by that doctor.
+ */
+public void generateDoctorPrescriptionReport() {
+    System.out.println("\n--- Prescriptions by Doctor ---");
+
+    System.out.print("Enter the doctor's name: ");
+    String doctorName = scanner.nextLine();
+
+    Doctor doctor = findDoctorByName(doctorName);
+
+    if (doctor == null) {
+        System.out.println("No doctor found with the name \"" + doctorName + "\".");
+        return;
+    }
+
+    System.out.println("\n========================================");
+    System.out.println("     PRESCRIPTION REPORT FOR DR. " + doctor.getName().toUpperCase());
+    System.out.println("========================================");
+    System.out.println("Specialization: " + doctor.getSpecialization());
+    System.out.println("Report Generated: " + LocalDate.now());
+    System.out.println();
+
+    boolean anyFound = false;
+
+    for (Prescription prescription : prescriptions) {
+        if (prescription.getDoctor().getId() == doctor.getId()) {
+            System.out.println(prescription);
+            System.out.println();
+            anyFound = true;
+        }
+    }
+
+    if (!anyFound) {
+        System.out.println("No prescriptions found for Dr. " + doctor.getName() + ".");
+    }
+
+    System.out.println("========================================");
+    System.out.println("           END OF REPORT                ");
+    System.out.println("========================================\n");
+}
+
+// 9 — PAST YEAR PRESCRIPTIONS BY DRUG NAME
+
+/**
+ * Generates a report of all prescriptions issued in the past year
+ */
+public void generatePastYearPrescriptionReport() {
+    System.out.println("\n========================================");
+    System.out.println("   PRESCRIPTIONS FROM THE PAST YEAR     ");
+    System.out.println("========================================");
+    System.out.println("Report Generated: " + LocalDate.now());
+    System.out.println();
+
+    boolean anyFound = false;
+
+    for (Patient patient : patients) {
+        ArrayList<String> pastYearDrugs = new ArrayList<>();
+
+        for (Prescription prescription : patient.getPrescriptions()) {
+            if (prescription.isWithinPastYear()) {
+                pastYearDrugs.add(prescription.getMedication().getName());
+                anyFound = true;
+            }
+        }
+
+        if (!pastYearDrugs.isEmpty()) {
+            System.out.println("Patient: " + patient.getName());
+            System.out.print("  Medications: ");
+            for (int i = 0; i < pastYearDrugs.size(); i++) {
+                System.out.print(pastYearDrugs.get(i));
+                if (i < pastYearDrugs.size() - 1) System.out.print(", ");
+            }
+            System.out.println();
+            System.out.println();
+        }
+    }
+
+    if (!anyFound) {
+        System.out.println("No prescriptions found from the past year.");
+    }
+
+    System.out.println("========================================");
+    System.out.println("           END OF REPORT                ");
+    System.out.println("========================================\n");
+}
+
+// 10 — RESTOCK MEDICATIONS
+
+/**
+ * Prompts the user for a restock amount and adds that
+ * quantity to every medication in the system.
+ */
+public void restockAllMedications() {
+    System.out.println("\n--- Restock All Medications ---");
+
+    if (medications.isEmpty()) {
+        System.out.println("No medications in the system to restock.");
+        return;
+    }
+
+    System.out.print("Enter the amount to add to all medications: ");
+    int amount = Integer.parseInt(scanner.nextLine());
+
+    System.out.println();
+    for (Medication med : medications) {
+        med.restock(amount);
+    }
+
+    System.out.println("\nAll medications have been restocked successfully.");
+}
 
 }
