@@ -241,3 +241,33 @@ The following standards were followed throughout the development of this project
 ---
 
 ## Database Design
+
+A database for this pharmacy system would be structured around four main tables,
+mirroring the four core classes in the application.
+
+**Patients Table**
+Stores all patient information including a unique patient ID, name, age, and phone
+number. This maps directly to the `Patient` class in the system.
+
+**Doctors Table**
+Stores all doctor information including a unique doctor ID, name, age, phone number,
+and specialization. This maps directly to the `Doctor` class in the system.
+
+**Medications Table**
+Stores all medication information including a unique medication ID, name, dose,
+quantity in stock, and expiry date. This maps directly to the `Medication` class.
+
+**Prescriptions Table**
+Acts as the central linking table of the entire database — the same role the
+`Prescription` class plays in the application. It stores a unique prescription ID,
+the issue date, the expiry date, and foreign keys referencing the doctor, patient,
+and medication involved. This table connects all three groups together.
+
+**Doctor-Patient Table**
+A separate junction table to handle the many-to-many relationship between doctors
+and patients — since one doctor can manage many patients and one patient can be seen
+by many doctors. It stores a doctor ID and patient ID as a pair.
+
+This structure supports all system functionalities — editing records, searching,
+assigning patients to doctors, checking expired medications, and generating reports
+— while keeping data organized, consistent, and easy to query.
