@@ -29,7 +29,6 @@ public class MedicationSystemTest {
 //            clear buffer
             scanner.nextLine();
 
-//
             switch (choice) {
 //                Add, delete, or edit patients
                 case 1:
@@ -57,26 +56,25 @@ public class MedicationSystemTest {
                     break;
 //                    Generate Full Report
                 case 7:
-//                    code here
+                    system.generateFullReport();
                     break;
-//                    Check Expired Medications
+//                    Check for expired medications
                 case 8:
-//                    code here
+                    system.generateExpiredMedicationReport();
                     break;
 //                    Doctor Prescriptions
                 case 9:
-//                    code here
+                    system.generateDoctorPrescriptionReport();
                     break;
 //                    Patient Prescription (Past Year)
                 case 10:
-//                    code here
+                    system.generatePastYearPrescriptionReport();
                     break;
 //                Restock Medications
                 case 11:
-//                    code here
+                    system.restockAllMedications();
                     break;
                 }
             }
         }
-
     }
