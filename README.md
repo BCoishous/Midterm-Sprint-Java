@@ -119,6 +119,27 @@ The central management class of the entire system. It maintains four master list
 **Functionalities 6-10 (implemented by Merethe Batino):**
 
 - Report generation, expired medication checks, prescription history, restocking, and the main Scanner menu
+-  Comprehensive System Report
+
+This feature generates a comprehensive report that summarizes all data in the system, including the total number of patients, doctors, medications, and prescriptions. It organizes the information into sections such as patient summaries, doctor summaries, medication summaries, prescription summaries, and a system health check.
+
+Expired Drug Detection Report
+
+This feature checks if any medications in the system have expired. If expired drugs are found, the system flags them in the report so the pharmacist can remove them from inventory and maintain patient safety.
+
+ Doctor's Prescription Report
+
+Lists all prescriptions issued by a specific doctor. It helps track the prescribing activity of doctors and allows administrators to review which medications they have prescribed to patients.
+
+Patient Prescription Summary (Past Year)
+
+This generates a summary of all prescriptions given to patients in the last year. It simplifies the information by listing only the names of the medications, allowing users to quickly see medication trends.
+
+Pharmacy Drug Restocking
+
+Automatically restocks medications in the pharmacy inventory. The system can either reset all medications to a fixed stock level or assign a random quantity to simulate restocking. This ensures the pharmacy maintains sufficient medication supplies.
+
+
 
 **Additional Functionalities (implemented by Samantha Stroud):**
 
