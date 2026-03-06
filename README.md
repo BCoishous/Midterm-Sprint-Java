@@ -118,7 +118,11 @@ The central management class of the entire system. It maintains four master list
 
 **Functionalities 6-10 (implemented by Merethe Batino):**
 
-- Report generation, expired medication checks, prescription history, restocking, and the main Scanner menu
+- `generateFullReport()` — prints a complete summary of all patients, doctors, medications, and prescriptions currently in the system
+- `generateExpiredMedicationReport()` — checks all medications and displays details of any that have passed their expiry date
+- `generateDoctorPrescriptionReport()` — prompts for a doctor's name and prints all prescriptions issued by that doctor
+- `generatePastYearPrescriptionReport()` — generates a report of all prescriptions issued in the past year, summarized by medication name per patient
+- `restockAllMedications()` — prompts for a restock amount and adds that quantity to every medication in the system
 
 **Additional Functionalities (implemented by Samantha Stroud):**
 
