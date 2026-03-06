@@ -118,7 +118,37 @@ The central management class of the entire system. It maintains four master list
 
 **Functionalities 6-10 (implemented by Merethe Batino):**
 
+<<<<<<< HEAD
+- `generateFullReport()` — prints a complete summary of all patients, doctors, medications, and prescriptions currently in the system
+- `generateExpiredMedicationReport()` — checks all medications and displays details of any that have passed their expiry date
+- `generateDoctorPrescriptionReport()` — prompts for a doctor's name and prints all prescriptions issued by that doctor
+- `generatePastYearPrescriptionReport()` — generates a report of all prescriptions issued in the past year, summarized by medication name per patient
+- `restockAllMedications()` — prompts for a restock amount and adds that quantity to every medication in the system
+=======
 - Report generation, expired medication checks, prescription history, restocking, and the main Scanner menu
+  
+Comprehensive System Report - `generateComprehensiveSummaryReport()`
+
+This feature generates a comprehensive report that summarizes all data in the system, including the total number of patients, doctors, medications, and prescriptions. It organizes the information into sections such as patient summaries, doctor summaries, medication summaries, prescription summaries, and a system health check.
+
+Expired Drug Detection Report - `med.getExpiryDate().isBefore(LocalDate.now())`
+
+This feature checks if any medications in the system have expired. If expired drugs are found, the system flags them in the report so the pharmacist can remove them from inventory and maintain patient safety.
+
+ Doctor's Prescription Report - `if (prescription.getDoctor().getId() == doctor.getId())`
+
+Lists all prescriptions issued by a specific doctor. It helps track the prescribing activity of doctors and allows administrators to review which medications they have prescribed to patients.
+
+Patient Prescription Summary (Past Year) - `prescriptionDate.isAfter(LocalDate.now().minusYears(1))`
+
+This generates a summary of all prescriptions given to patients in the last year. It simplifies the information by listing only the names of the medications, allowing users to quickly see medication trends.
+
+Pharmacy Drug Restocking - `med.setQuantityInStock(100);`
+
+Automatically restocks medications in the pharmacy inventory. The system can either reset all medications to a fixed stock level or assign a random quantity to simulate restocking. This ensures the pharmacy maintains sufficient medication supplies.
+
+
+>>>>>>> f1b90a4a5f556a57af73dd461bba44265e0fdc2d
 
 **Additional Functionalities (implemented by Samantha Stroud):**
 
